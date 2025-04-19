@@ -3,7 +3,7 @@ session_start();
 include("datos.php");
 include("funciones.php");
 if (!isset($_SESSION["id"])) {
-    echo "<script>alert('Debes iniciar sesión');</script>";
+    echo "<script>alert('Debes iniciar sesion');</script>";
     exit;
 }
 $user = $_SESSION["id"];
