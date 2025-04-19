@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: "Roboto", sans-serif;
+    padding: 140px 1rem 2rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, min(100%, 300px));
+    justify-content: center;
+    background-color: #f0f8ff;
+
+}
+
+.page_header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0 1rem;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.page_logo {
+    max-width: 400px;
+    height: auto;
+}
+
+.card {
+    width: 300px;
+    display: grid;
+    grid-template-rows: 150px 1fr;
+    position: relative;
+    cursor: pointer;
+    background-color: rgb(75, 138, 190);
+    color: white;
+    box-shadow: 0 0 6px rgb(0, 0, 0 / 5);
+    padding: 1rem;
+    margin-top: 55px;
+
+    --clippy-image: circle(0% at top right);
+    --transform: unset;
+    --columns: 1fr max-content 1fr;
+    --opacity: 0;
+}
+
+
+
+.card_charmander {
+    background-color: rgb(163, 213, 93);
+}
+
+.card_eive {
+    background-color: rgb(246, 209, 85);
+}
+
+.card_bulbasur {
+    background-color: rgb(247, 140, 34);
+}
+
+.card_duck {
+    background-color: rgb(216, 44, 61);
+}
+
+.card_snorlax {
+    background-color: rgb(255, 179, 193);
+}
+
+
+.card:hover {
+    --clippy-image: circle(90% at top right);
+    --transform: scale(.65) translateY(-20px);
+    --columns: 0fr max-content 1fr;
+    --opacity: 1;
+}
+
+.card_figure {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    aspect-ratio: 1/1;
+
+    clip-path: var(--clippy-image);
+    transition: clip-path .8s;
+}
+
+
+
+.card_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.card_name {
+    position: absolute;
+    inset: 0;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: var(--columns);
+    grid-template-areas: ". title .";
+    place-items: center;
+
+    transition: grid-template-columns .8s;
+}
+
+.card_title {
+    font-size: 2.5rem;
+    transform-origin: left;
+    transform: var(--transform);
+    grid-area: title;
+    transition: .8s transform;
+}
+
+
+.card_text {
+    opacity: 0;
+    z-index: 10;
+    grid-row: 2/3;
+    opacity: var(--opacity);
+    transition: opacity .5s;
+    padding-left: 20px;
+}
+
+.card_button {
+    background-color: white;
+    color: #333;
+    border: none;
+    z-index: 20;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    align-self: flex-start;
+    justify-self: center;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card_button:hover {
+    background-color: #e6f0fa;
+    transform: scale(1.05);
+}
+
+/* Contenedor que solo afecta al botón */
+.container {
+    position: fixed;        /* El contenedor se mantiene fijo en la pantalla */
+    bottom: 100px;           /* Ubicamos el contenedor cerca del fondo */
+    left: 50%;              /* Centra el contenedor horizontalmente */
+    transform: translateX(-50%); /* Ajusta para asegurar que esté exactamente centrado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;            /* No necesita ocupar toda la pantalla */
+}
+
+/* Estilo para el botón */
+.btn_avanzar {
+    background-color: #333;
+    color: #84bf2b;
+    border: none;
+    padding: 12px 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+}
+
+
